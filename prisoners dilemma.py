@@ -5,7 +5,7 @@ import time
 def prisoners_dilemma(iteration_count: int, chances: int, prisoner_number: int):
     flag = bool()
     start = time.time()
-    op_list = []
+    res = 0
     for i in range(iteration_count):
         rand_set = set()
         number_list = []
@@ -38,11 +38,10 @@ def prisoners_dilemma(iteration_count: int, chances: int, prisoner_number: int):
                 if iteration == 0:
                     flag = False
             if flag is False:
-                op_list.append(0)
                 break
         if flag is True:
-            op_list.append(1)
-    success_percentage = (op_list.count(1) / iteration_count) * 100
+            res += 1
+    success_percentage = (res / iteration_count) * 100
     print(f"success percentage = {success_percentage}%")  # increased average success%, now at 31.42%
     end = time.time()
     print(f"time taken:{end - start}")
